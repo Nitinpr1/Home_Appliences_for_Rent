@@ -1,0 +1,194 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="GuestMaster.master.cs" Inherits="Home_Appliences_for__rent.GuestUser.GuestMaster" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title>RentSpace</title>
+    <link rel="icon" type="image/x-icon" href="../user/NewFolder1/favicon.ico">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta http-equiv="X-UA-Compatible" content="IE-edge" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous" />
+    <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css" />
+
+    <link rel="stylesheet" href="/user/home.css" />
+    <style>
+        .pattern {
+            background-color: rgba(255, 255, 255, 1);
+            opacity: 1;
+            background-image: radial-gradient(#ec6f09 1.5px, transparent 1.5px), radial-gradient(#ec6f09 1.5px, rgba(255, 255, 255, 1) 1.5px);
+            background-size: 60px 60px;
+            background-position: 0 0,30px 30px;
+        }
+        .btnhover{
+            color:black;
+        }
+    </style>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body style="font-family: 'Calisto MT';" class="pattern">
+    <div>
+        <!--navbar-->
+        <%--   <div class="container">
+                <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 fixed-top shadow mb-4 border-bottom" style="background-color:white;">
+                    <a href="Home.aspx" class="d-flex align-items-center col-md-3 mb-2 mb-md-0 text-dark text-decoration-none">
+                        <h3 class="ms-5" style="font-family: 'Calisto MT'; font-size: xx-large; font-weight: bold; font-style: normal; font-variant: normal; text-transform: none; color: #FF6600;">Rentspace</h3>
+                    </a>
+                    <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
+                        <li><a href="GuestHome.aspx" class="nav-link px-2 link-primary">Home</a></li>
+                   
+                        <li class="nav-item dropdown">
+                            <a class="nav-link link-dark dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Products
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="GuestElectronic.aspx">Electronic</a></li>
+                                <li><a class="dropdown-item" href="GuestFurniture.aspx">Furniture</a></li>
+                            </ul>
+                        </li>
+ 
+                        <li><a href="/user/AboutUs.aspx" class="nav-link px-2 link-dark">About Us</a></li>
+                        <li><a href="/user/ContactUs.aspx" class="nav-link px-2 link-dark">Contact Us</a></li>
+                   
+                    </ul>
+                    <div class="col-md-3 text-end me-lg-5">
+                        <a href="/user/Ulogin.aspx" class="  btn btn-outline-primary me-2">Login </a>
+                        <a href="/user/Usignup.aspx" class="btn btn-primary">Sign-up </a>
+                    </div>
+                </header>
+            </div>--%>
+        <nav class="navbar navbar-expand-lg bg-body-tertiary fixed-top shadow " style="background-color: #F8F8FF;">
+            <div class="container-fluid">
+                 <a class="navbar-brand ms-lg-5 me-5" href="/user/Ulogin.aspx ">
+                        
+                        <h3 class="" style="font-family: 'Calisto MT'; font-size: xx-large; font-weight: bold; font-style: normal; font-variant: normal; text-transform: none; color: #FF6600;">Rentspace</h3>
+                    </a>
+                
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse " id="navbarText">
+                    <ul class="navbar-nav  me-auto mb-2 mb-lg-0">
+
+                        <li class="nav-item ms-lg-5">
+                            <a href="GuestHome.aspx" class="nav-link px-2 me-lg-3 link-dark">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link link-dark px-2 me-lg-3" href="GuestElectronic.aspx">Electronic</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link link-dark px-2 me-lg-3" href="GuestFurniture.aspx">Furniture</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/user/AboutUs.aspx" class="nav-link link-dark px-2 me-lg-3 link-dark">About Us</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/user/ContactUs.aspx" class="nav-link link-dark px-2 me-lg-3 link-dark">Contact Us</a>
+                        </li>
+
+                    </ul>
+                    <span class="navbar-text me-lg-5">
+                        <a href="/user/Ulogin.aspx" class="  btn btn-outline-primary  me-2 btnhover">Login </a>
+                        <a href="/user/Usignup.aspx" class="btn btn-primary">Sign-up </a>
+                    </span>
+                </div>
+            </div>
+        </nav>
+        <!--navbar end-->
+    </div>
+    <br />
+    <br />
+    <br />
+    <br />
+    <div>
+        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+        </asp:ContentPlaceHolder>
+    </div>
+    <!--footer-->
+    <div class="container-fluid" style="background-color: antiquewhite;">
+
+        <footer class=" row py-5 mt-5 border-top">
+            <div class="col-6 mb-3 ms-5">
+                <div class="row">
+
+                    <a
+                        href="Home.aspx"
+                        class="d-flex align-items-center mb-3 link-dark text-decoration-none">
+
+                        <h4 class=" " style="font-family: 'Calisto MT'; font-size: xx-large; font-weight: bold; font-style: normal; font-variant: normal; text-transform: none; color: #FF6600;">Rentspace</h4>
+                    </a>
+                    <p class="text-muted" style="text-align: justify; text-justify: inter-word;">
+                        We understand that buying new appliances and furniture can be expensive, so why not rent them instead? Our hassle-free rental process and flexible rental periods make it easy for you to enjoy the comfort of your home without breaking the bank. 
+                    </p>
+                </div>
+                <div class="row">
+                    <h5 style="font-family: 'Calisto MT'; font-size: large; font-weight: bold; font-style: normal; font-variant: normal; text-transform: none; color: #FF6600;">Follow Us On</h5>
+                    <div class="col-5 m-2">
+                        <ul class="nav d-flex justify-content-md-between ">
+                            <li class="nav-item mb-2">
+                                <a href="#" class="icons"><i class="bi bi-facebook fs-4"></i></a>
+                            </li>
+                            <li class="nav-item mb-2">
+                                <a href="https://www.instagram.com/nitin_prajapati15/" class="icons"><i class="bi bi-instagram fs-4"></i></a>
+                            </li>
+                            <li class="nav-item mb-2">
+                                <a href="#" class="icons"><i class="bi bi-linkedin fs-4"></i></a>
+                            </li>
+                            <li class="nav-item mb-2">
+                                <a href="#" class="icons"><i class="bi bi-twitter fs-4"></i></a>
+                            </li>
+                            <li class="nav-item mb-2">
+                                <a href="#" class="icons"><i class="bi bi-youtube fs-4"></i></a>
+                            </li>
+
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-4 mb-1">
+                <div class="row  float-end">
+                    <div class="col">
+                        <h5>Links</h5>
+                        <ul class="nav flex-column">
+                            <li class="nav-item mb-2">
+                                <a href="GuestHome.aspx" class="nav-link p-0 text-muted">Home</a>
+                            </li>
+                            <li class="nav-item mb-2">
+                                <a href="GuestElectronic.aspx" class="nav-link p-0 text-muted">Electronics</a>
+                            </li>
+                            <li class="nav-item mb-2">
+                                <a href="GuestFurniture.aspx" class="nav-link p-0 text-muted">Furnitures</a>
+                            </li>
+                            <li class="nav-item mb-2">
+                                <a href="/user/ContactUs.aspx" class="nav-link p-0 text-muted">Contact Us</a>
+                            </li>
+                            <li class="nav-item mb-2">
+                                <a href="/user/AboutUs.aspx" class="nav-link p-0 text-muted">About Us</a>
+                            </li>
+                        </ul>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="col-12 d-flex justify-content-center">
+                <div class="row text-muted">
+
+                    <p>© Copyright@Rentspace</p>
+                </div>
+            </div>
+
+        </footer>
+
+    </div>
+
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+</body>
+</html>

@@ -1,0 +1,114 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Adminmaster.master.cs" Inherits="Home_Appliences_for__rent.Admin.Adminmaster" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+
+    <title>Rentspace</title>
+    <link rel="icon" type="image/x-icon" href="../user/NewFolder1/favicon.ico">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta http-equiv="X-UA-Compatible" content="IE-edge" />
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous" />
+
+    <link rel="stylesheet" href="/user/home.css" />
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css" />
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body style="font-family: 'Calisto MT';">
+    <form id="form1" runat="server">
+        <!--navbar-->
+        <div class="container">
+            <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom fixed-top shadow" style="background-color:white;">
+                <a href="AdminHome.aspx" class="d-flex align-items-center col-md-3 mb-2 mb-md-0 text-dark text-decoration-none">
+                    <h3 class="ms-5" style="font-family: 'Calisto MT'; font-size: xx-large; font-weight: bold; font-style: normal; font-variant: normal; text-transform: none; color: #FF6600;">Rentspace</h3>
+                </a>
+                <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
+                    <li><a href="AdminHome.aspx" class="nav-link px-2 link-dark">Home</a></li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link link-dark dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Manage-Product
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="AddCategory.aspx">Add-Category</a></li>
+                            <li><a class="dropdown-item" href="AddSubCategory.aspx">Add-Subcategory</a></li>
+                            <li><a class="dropdown-item" href="AddProduct.aspx">Add-Product</a></li>
+                        </ul>
+                    </li>
+
+                    <li><a href="ManageUser.aspx" class="nav-link px-2 link-dark">Manage Users</a></li>
+                    <li><a href="Reports.aspx" class="nav-link px-2 link-dark">Reports</a></li>
+                    <li><a href="../user/ChangePassword.aspx" class="nav-link px-2 link-dark">Change Password</a></li>
+                </ul>
+                <div class="col-md-3 text-end me-5">
+                    <asp:Button ID="btnsignout" class="btn btn-primary me-2" runat="server" Text="Sign Out" OnClick="btnsignout_Click" />
+
+                </div>
+            </header>
+            
+        </div>
+        <!--navbar end-->
+        <br />
+              <br />      <br />      <br /> 
+        <div>
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+
+        <div class="container-fluid" style="background-color: antiquewhite;">
+            <footer class=" row py-5 mt-4 border-top">
+                <div class="col-3 mb-3 ms-5">
+                    <div class="row">
+                        <a href="AdminHome.aspx" class="d-flex align-items-center mb-3 link-dark text-decoration-none">
+                            <h4 class=" " style="font-family: 'Calisto MT'; font-size: xx-large; font-weight: bold; font-style: normal; font-variant: normal; text-transform: none; color: #FF6600;">Rentspace</h4>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-8">
+                    <div class="row float-end ">
+
+                        <nav class="navbar navbar-expand-sm bg-body-tertiary">
+                            <div class="container-fluid">
+                                <i class="bi bi-arrow-right-circle-fill me-3"></i>
+                                <ul class="navbar-nav">
+                                    <li class="nav-item">
+                                        <a class="nav-link" aria-current="page" href="AdminHome.aspx">Home</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="AddProduct.aspx">Add Product</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="ManageUser.aspx">Manage Users</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="Reports.aspx">Reports</a>
+                                    </li>
+                                </ul>
+
+                            </div>
+                        </nav>
+                    </div>
+
+                </div>
+
+                <div class="col-12 mt-3 d-flex justify-content-center">
+                    <div class="row text-muted">
+
+                        <p>© Copyright@Rentspace</p>
+                    </div>
+                </div>
+
+            </footer>
+
+        </div>
+    </form>
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+</body>
+</html>

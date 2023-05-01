@@ -1,0 +1,71 @@
+﻿
+
+body {
+    margin: 0;
+    padding: 0;
+}
+ 
+
+.sitems:hover {
+    cursor: pointer;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    transition: 0.5s;
+}
+
+.btn-primary {
+    background-color: orangered !important;
+    border-color: orangered !important;
+    color: white;
+}
+
+    .btn-primary:hover {
+        background-color: white !important;
+        color: orangered;
+    }
+
+.btn-outline-primary {
+    color: orangered;
+    border-color: orangered !important;
+}
+
+    .btn-outline-primary:hover {
+        background-color: orangered !important;
+        color: white;
+    }
+
+.nav-link:hover {
+    color: orangered !important;
+}
+
+   
+
+.about {
+    height: 500px !important;
+}
+
+.Imga {
+    max-height: 350px;
+    margin-left: 50px;
+ 
+}
+
+.Imga1 {
+    max-height: 250px;
+    margin-left: 50px;
+    border-radius: 25%;
+}
+
+.icons {
+    color: gray !important;
+}
+
+    .icons:hover {
+        color: orangered !important;
+        cursor: pointer;
+    }
+
+.jtext{
+    text-align:justify;
+    text-justify:inter-word;
+}
+ 
