@@ -89,7 +89,7 @@ namespace Home_Appliences_for__rent.user
             {
                 smtp.EnableSsl = true;
                 smtp.UseDefaultCredentials = false;
-                smtp.Credentials = new NetworkCredential("nitin.prajapati_it@scct.edu.in", "Nitin6390");
+                smtp.Credentials = new NetworkCredential("nitin.prajapati_it@scct.edu.in", "scct.edu");
                 smtp.Host = "smtp.gmail.com";
                 smtp.Port = 587;
                 smtp.DeliveryMethod = SmtpDeliveryMethod.Network;
