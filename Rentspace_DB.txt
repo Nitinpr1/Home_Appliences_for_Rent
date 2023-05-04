@@ -1,0 +1,189 @@
+  use RentspaceDB
+
+create table tblcategory
+(
+CatId int identity(1,1) primary key,
+CatName varchar(max)
+)
+
+create table tblSubcategory
+(
+SubcatId int identity(1,1) primary key,
+SubcatName varchar(max),
+MaincatId int null,
+Constraint [FK_tblSubcategory_Totblcategory] Foreign key ([MaincatId]) References [tblcategory] ([CatId])
+)
+
+create table tblProducts
+(
+Pid int identity(1,1) primary key,
+PName varchar(max),
+DPrice money,
+RPrice money,
+PCatId int,
+PSubcatId int,
+PDescription varchar(max),
+PProductFeature varchar(max),
+Pimg nvarchar(max),
+Constraint [FK_tblProducts_Totblcategory] Foreign key ([PCatId]) References [tblcategory] ([CatId]),
+Constraint [FK_tblProducts_TotblSubcategory] Foreign key ([PSubcatId]) References [tblSubcategory] ([SubcatId])
+)
+
+create table tblProductImg
+(
+PimgId int identity(1,1) primary key,
+Pid int,
+PIname nvarchar(max),
+Extention nvarchar(100)
+ Constraint [FK_tblProductImg_TotblProducts] Foreign key ([PId]) References [tblProducts] ([Pid]) 
+)
+
+ create procedure Sp_InsertProduct
+(
+@PName nvarchar(max),
+@DPrice money,
+@RPrice money,
+@PCatId int,
+@PSubcatId int,
+@PDescription nvarchar(max),
+@PProductFeature nvarchar(max)
+)
+as 
+
+insert into tblProducts values(@PName,@DPrice,@RPrice,@PCatId,@PSubcatId,@PDescription,@PProductFeature)
+select SCOPE_IDENTITY()
+return 0
+
+////binding to card
+
+create procedure proBindAllProducts
+as
+select A.*,B.* from tblProducts A 
+cross apply(
+select top 1 * from tblProductImg B where B.Pid=A.Pid order by B.Pid desc
+
+)B
+order by A.Pid desc
+return 0
+ 
+ 
+     
+create table tblcart
+(
+CartId int identity(1,1)  primary key,
+UserId int,
+PId int,
+Pname varchar(max),
+Pimg varchar(max),
+PQuantity int,
+dprice money,
+rprice money,
+totalprice money,
+Constraint [FK_tblcart_TotblProducts] Foreign key ([PId]) References [tblProducts] ([Pid]),
+Constraint [FK_tblcart_ToTblUser] Foreign key ([UserId]) References [TblUser] ([Userid])
+)
+
+new cart
+create table tblcart
+(
+CartId int identity(1,1)  primary key,
+UserId int,
+PId int,
+Pname varchar(max),
+Pimg varchar(max),
+PQuantity int,
+dprice money,
+rprice money,
+months int,
+[SubDAmount]  AS ([dprice]*[PQuantity]),
+[SubRAmount]  AS ([rprice]*[PQuantity]*[months]),
+Constraint [FK_tblcart_TotblProducts] Foreign key ([PId]) References [tblProducts] ([Pid]),
+Constraint [FK_tblcart_ToTblUser] Foreign key ([UserId]) References [TblUser] ([Userid])
+)
+
+select A.PName,A.Pid,B.Extention from tblProducts as A inner join tblProductImg as B on B.Pid=A.Pid where B.Pid=19
+
+
+create table tblContectUs
+(
+PersonId int primary key identity(1,1),
+PersonName varchar(50),
+PersonEmail varchar(50),
+msg varchar(max)
+)
+select * from tblContectUs
+
+create table ForgotPass
+(
+Id  varchar(500)   not null Primary key,
+Uid int null,
+RequestDateTime Datetime null,
+Constraint [FK_ForgotPass_TblUser] Foreign key ([Uid]) references [TblUser] ([Userid])
+)
+
+create table tblOrders(
+OrderId int identity(1,1) primary key,
+OrderNumber int not null,
+UserId int not null,
+Email nvarchar(50) not null,
+UName nvarchar(50) not null,
+UAddress nvarchar(max) not null,
+ContactNo bigint not null,
+City varchar(50),
+Zip int,
+DPrice money not null,
+RPrice money not null,
+TotalPaid money not null,
+Paymentstatus varchar(20) not null,
+RentalDate datetime not null,
+Returndate datetime not null,
+Constraint [FK_tblOrders_ToTblUser] Foreign key ([UserId]) References [TblUser] ([Userid])
+
+)
+
+select A.PName,A.Pid,B.Extention from tblProducts as A inner join tblProductImg as B on B.Pid=A.Pid where B.Pid=19
+select A.*,B.UserId,B.UName,B.Email,B.ContactNo,B.UAddress,B.City,B.TotalPaid,B.Paymentstatus from tblOrderedProducts as A inner join tblOrders as B on B.OrderNumber=A.OrderNumber
+
+CREATE TABLE tblOrderedProducts(
+	OrderedProId int IDENTITY(1,1) NOT NULL primary key,
+	OrderNumber int NULL,
+	UserId int NULL,
+	Products nvarchar(max) NULL,
+	Quantity int NULL,
+	Months int ,
+	RentalDate datetime not NULL,
+	Returndate datetime not null,
+	OrderStatus nvarchar(100) NULL,
+Constraint [FK_tblOrderedProducts_ToTblUser] Foreign key ([UserId]) References [TblUser] ([Userid])
+)
+
+create table tblPayments(
+PaymetId int identity(1,1) primary key,
+UserId int not null,
+CardNo bigint not null,
+Expirydate datetime not null,
+CVV int not null,
+TotalPaid money not null,
+Paymentstatus varchar(50)
+Constraint [FK_tblPayments_ToTblUser] Foreign key ([UserId]) References [TblUser] ([Userid])
+)
+
+create procedure spDeleteUserAndRelatedData
+@userid int
+as
+begin
+  delete from tblPayments where UserId=@userid
+  delete from tblOrders where UserId=@userid
+  delete from tblOrderedProducts where UserId=@userid
+  delete from tblcart where UserId=@userid
+  delete from TblUser where Userid=@userid
+  end
+  
+  create procedure spDeleteSubcategoryAndRelatedProducts
+  @subcatid int
+  as
+  begin
+  delete from tblProducts where PSubcatId=@subcatid
+  delete from tblSubcategory where SubcatId=@subcatid
+  end
+  
