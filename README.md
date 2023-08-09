@@ -2,7 +2,7 @@
 Online Rental web application
 This website provides Home Appliances like TV, Fridge, AC etc. and Furniture for rent.
 
- Functionalities:
+🚀 Functionalities:
 User:
 o User can Login/ Register.
 o User can view Products
