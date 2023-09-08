@@ -34,9 +34,9 @@ Technologies Used 🛠️
 Getting Started 🚀
 
 - 👉 Clone this repository.
-- 👉 Set up your SQL Server database by creating backup the provided SQL script.
+- 👉 Set up your SQL Server (use sql server 2019) database by creating backup the provided SQL script.
 + 👉 Configure the connection string in the web application.
-* 👉 Build and run the application using Visual Studio or your preferred development environment.
+* 👉 Build and run the application using Visual Studio (use visual studio 2022) or your preferred development environment.
 
 
 Feel free to reach out with any questions or feedback. Happy coding! 😀
